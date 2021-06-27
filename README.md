@@ -1,2 +1,2 @@
-# greasemonkey-scripts
-All of the greasemonkey scripts that I run
+# Userscripts
+All of the greasemonkey/tampermonkey userscripts that I've worked on
