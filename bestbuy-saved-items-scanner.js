@@ -2,7 +2,7 @@
 // @name         BestBuy Saved Items Scanner
 // @namespace    https://github.com/naschorr/userscripts
 // @version      0.1
-// @description  Repeatedly refresh a BetBuy's "saved items" page, look for specific "Add to Cart" buttons, click them if present, and make a lot of noise on success. Derived from the work done by https://github.com/beporter
+// @description  Repeatedly refresh a BetBuy's "saved items" page, look for specific "Add to Cart" buttons, click them if present, and make a lot of noise on success. Derived from the work done here: https://gist.github.com/beporter/ce76204bcba35d9edb66b395bb5e9305
 // @author       https://github.com/beporter and https://github.com/naschorr
 // @match        https://www.bestbuy.com/site/customer/lists/manage/saveditems
 // @grant        none
