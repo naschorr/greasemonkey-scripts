@@ -8,7 +8,7 @@
 // @grant        none
 // @run-at       document-idle
 // @require      https://cdnjs.cloudflare.com/ajax/libs/howler/2.1.3/howler.min.js#sha256-/Q4ZPy6sMbk627wHxuaWSIXS1y7D2KnMhsm/+od7ptE=
-// @downloadURL  https://gist.githubusercontent.com/beporter/ce76204bcba35d9edb66b395bb5e9305/raw/add_to_cart.user.js
+// @icon         https://www.google.com/s2/favicons?domain=bestbuy.com
 // ==/UserScript==
 
 (function() {
@@ -27,7 +27,7 @@
     };
 
     // Scan the page for the provided selector and "click" them if present.
-    function triggerClicks(config) {``
+    function triggerClicks(config) {
         var anyClicked = false;
         const itemNodes = document.querySelectorAll(config.rootSelector);
 
