@@ -1,6 +1,9 @@
 # userscripts
 All of the greasemonkey/tampermonkey compatible userscripts that I've worked on
 
+## Amazon Smile Redirector
+Redirects non-smile URLs to their equivalent `smile.amazon.com` URL
+
 ## Autotrader Sponsored Listing Hider
 Autotrader is a useful resource during the car buying process, however their listings have steadily gotten more and more cluttered. This script changes that by:
 - Removing the big "alpha" sponsored listing at the top of the page
