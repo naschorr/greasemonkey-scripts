@@ -1,7 +1,8 @@
+
 // ==UserScript==
 // @name         BestBuy Saved Items Scanner
 // @namespace    https://github.com/naschorr/userscripts
-// @version      0.1
+// @version      0.2
 // @description  Repeatedly refresh a BetBuy's "saved items" page, look for specific "Add to Cart" buttons, click them if present, and make a lot of noise on success. Derived from the work done here: https://gist.github.com/beporter/ce76204bcba35d9edb66b395bb5e9305
 // @author       https://github.com/beporter and https://github.com/naschorr
 // @match        https://www.bestbuy.com/site/customer/lists/manage/saveditems
@@ -25,6 +26,91 @@
             cooldown: 5,
             active: true,
     };
+
+    const NOTIFICATION_AUTH_TEMPLATE = `
+        <div style="display: flex; flex-direction: column; justify-content: center; align-items: center; font-family: Arial, Helvetica, sans-serif;">
+            <div style="font-size: large; margin: 15px;">Want a notification when stock is added to your cart?</div>
+            <div style="display: flex; justify-content: center; align-items: center;">
+                <button id="request-notification-grant" style="padding: 5px; margin: 15px; padding: 5px 10px; border-radius: 5px;">Yes</button>
+                <button id="request-notification-deny" style="padding: 5px; margin: 15px; padding: 5px 10px; border-radius: 5px;">No</button>
+            </div>
+        </div>
+    `;
+
+    function applyRequestNotificationPopupTemplateToPage() {
+        // If it's selectable, then it's already been added
+        if (!!document.querySelector('#request-notification-popup')) {
+            return;
+        }
+
+        // Basic div element init
+        const parent = document.querySelector('body');
+        const popup = document.createElement('div');
+        popup.innerHTML = NOTIFICATION_AUTH_TEMPLATE;
+
+        // Some styling so it doesn't look horrendous
+        popup.id = 'request-notification-popup';
+        popup.style.width = '200px';
+        popup.style.zIndex = '9999';
+        popup.style.position = 'absolute';
+        popup.style.top = '100px';
+        popup.style.padding = '15px';
+        popup.style.marginTop = '15px';
+        popup.style.marginLeft = 'calc(50% - 100px)';
+        popup.style.backgroundColor = 'white';
+        popup.style.borderRadius = '5px';
+        popup.style.boxShadow = '0px 5px 10px 5px rgba(0, 0, 0, 0.25)';
+
+        parent.appendChild(popup);
+
+        return popup;
+    }
+
+    function showRequestNotificationPopup() {
+        let popup = document.querySelector('#request-notification-popup');
+
+        if (!!popup) {
+            popup.style.display = 'block';
+        } else {
+            popup = applyRequestNotificationPopupTemplateToPage();
+            popup.style.display = 'block';
+        }
+    }
+
+    function hideRequestNotificationPopup() {
+        const popup = document.querySelector('#request-notification-popup');
+        if (!!popup) {
+            popup.style.display = 'none';
+        }
+    }
+
+    function requestNotificationPermission(callback) {
+        console.log(`current notification permission is '${Notification.permission}'`);
+
+        // Don't bother if the user has denied it already
+        if (Notification.permission === "default") {
+            showRequestNotificationPopup();
+
+            document.querySelector('#request-notification-grant').addEventListener('click', () => {
+                Notification.requestPermission();
+                hideRequestNotificationPopup();
+            });
+
+            document.querySelector('#request-notification-deny').addEventListener('click', () => {
+                console.log('User denied notification permission');
+                hideRequestNotificationPopup();
+            });
+        }
+    }
+
+    function attemptNotification(string) {
+        // Check for notification permission first, requesting if for some reason the user still hasn't granted/denied it
+        if (Notification.permission === "granted") {
+            const notification = new Notification(string);
+        } else if (Notification.permission === 'default') {
+            requestNotificationPermission(attemptNotification(string));
+        }
+    }
 
     // Scan the page for the provided selector and "click" them if present.
     function triggerClicks(config) {
@@ -92,12 +178,23 @@
         }).play();
     }
 
-    // function main()
-    waitToClick(CONFIG, (config) => {
-        if (triggerClicks(config)) {
-            playAlertSound();
-        } else if (config.cooldown) {
-            refreshInSecs(config.cooldown);
-        }
-    });
+    function main() {
+        // Check for notification permissions, so once an item is found a notification can be pushed
+        requestNotificationPermission();
+
+        // Perform the saved items check
+        waitToClick(CONFIG, (config) => {
+            if (triggerClicks(config)) {
+                const notificationText = 'Item found!';
+
+                playAlertSound();
+                attemptNotification(notificationText);
+                document.title = notificationText;
+            } else if (config.cooldown) {
+                refreshInSecs(config.cooldown);
+            }
+        });
+    }
+
+    main();
 })();
