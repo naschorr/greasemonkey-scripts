@@ -18,3 +18,6 @@ Big thanks to [beporter](https://gist.github.com/beporter/ce76204bcba35d9edb66b3
 
 ## Fidelity Landing Page Tweaker
 Fidelity's landing page defaults to showing daily data for the DJIA. I'm more interested in the S&P 500 data, so this script will automatically select that data when loading the landing page. It's also configurable, and allows users to select any of the available markets, and any of the available timeframes.
+
+## Old Reddit Redirector
+Redirects non-`old.reddit.com` URLs to `old.reddit.com`.
