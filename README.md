@@ -21,3 +21,6 @@ Fidelity's landing page defaults to showing daily data for the DJIA. I'm more in
 
 ## Old Reddit Redirector
 Redirects non-`old.reddit.com` URLs to `old.reddit.com`.
+
+## StackOverflow Career Banner Hider
+Hides the massive "Imagine yourself at..." recruitment banner in the middle of the screen of certain StackOverflow results.
