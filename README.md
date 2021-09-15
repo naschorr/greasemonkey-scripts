@@ -22,5 +22,8 @@ Fidelity's landing page defaults to showing daily data for the DJIA. I'm more in
 ## Old Reddit Redirector
 Redirects non-`old.reddit.com` URLs to `old.reddit.com`.
 
+## PNC Login Sign On Button Enabler
+PNC bank has this outdated login page that doesn't place nice with password managers, and seems to require user interaction in either the username or password fields to enable the sign on button. This script just forces that button to be enabled, and lessens the amount of time spent looking at that 2010 era web design.
+
 ## StackOverflow Career Banner Hider
 Hides the massive "Imagine yourself at..." recruitment banner in the middle of the screen of certain StackOverflow results.
