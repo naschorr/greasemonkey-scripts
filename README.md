@@ -1,5 +1,5 @@
 # userscripts
-All of the greasemonkey/tampermonkey compatible userscripts that I've worked on
+All of the greasemonkey/violentmonkey/tampermonkey compatible userscripts that I've worked on
 
 ## Amazon Smile Redirector
 Redirects non-smile URLs to their equivalent `smile.amazon.com` URL
