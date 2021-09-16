@@ -1,12 +1,11 @@
 // ==UserScript==
 // @name         Amazon Smile Redirector
 // @namespace    https://github.com/naschorr/userscripts
-// @version      0.3
+// @version      0.4
 // @description  Redirects regular Amazon URLs to their equivalent Amazon Smile domain
 // @author       You
-// @include      https://*amazon.com/*
-// @exclude      https://*aws*amazon.com/*
-// @exclude      https://*smile*amazon.com/*
+// @include      https://amazon.com/*
+// @include      https://www.amazon.com/*
 // @icon         https://www.google.com/s2/favicons?domain=amazon.com
 // @grant        none
 // ==/UserScript==
