@@ -1,6 +1,9 @@
 # userscripts
 All of the greasemonkey/violentmonkey/tampermonkey compatible userscripts that I've worked on
 
+## Ally Automatic Account Selector
+Ally bank doesn't remember that I use their banking service, and not their auto financing service. It's annoying to have to manually select the banking service each time I want to log in, so this script will do that automatically. It can also be configured to select the financing service if desired.
+
 ## Amazon Smile Redirector
 Redirects non-smile URLs to their equivalent `smile.amazon.com` URL
 
