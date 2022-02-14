@@ -35,10 +35,9 @@ function updateCompletionTimes() {
 
 (function() {
     'use strict';
-    console.log("checking!");
+
     const checkInterval = setInterval(() => {
         if (document.querySelector('.campaign-tables table[aria-label*="Single Player"] .labels+tbody') != null) {
-            console.log("Loaded!");
             updateCompletionTimes();
             clearInterval(checkInterval);
         }
