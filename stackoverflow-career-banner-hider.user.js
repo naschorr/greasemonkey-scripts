@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         StackOverflow Career Banner Hider
 // @namespace    https://github.com/naschorr/userscripts
-// @version      0.1
+// @version      0.2
 // @description  Hides the "Imagine yourself at..." career banner at the top of some StackOverflow questions
 // @author       https://github.com/naschorr
 // @match        https://*.stackoverflow.com/questions/*
@@ -12,7 +12,7 @@
 (function() {
     'use strict';
 
-    const CAREER_BANNER_ELEMENT_SELECTOR = '#clc-tlb';
+    const CAREER_BANNER_ELEMENT_SELECTOR = '#clc-mlb';
 
     const careerBannerElement = document.querySelector(CAREER_BANNER_ELEMENT_SELECTOR);
     if (!!careerBannerElement) {
