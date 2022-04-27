@@ -1,11 +1,12 @@
 // ==UserScript==
 // @name         Old Reddit Redirector
 // @namespace    https://github.com/naschorr/userscripts
-// @version      0.1
+// @version      0.2
 // @description  try to take over the world!
 // @author       You
 // @include      https://*reddit.com/*
 // @exclude      https://*old*reddit.com/*
+// @exclude      https://*reddit.com/poll/*
 // @icon         https://www.google.com/s2/favicons?domain=reddit.com
 // @grant        none
 // ==/UserScript==
