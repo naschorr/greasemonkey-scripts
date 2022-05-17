@@ -2,11 +2,12 @@
 // @name         Old Reddit Redirector
 // @namespace    https://github.com/naschorr/userscripts
 // @version      0.2
-// @description  try to take over the world!
+// @description  Redirect Reddit URLs to their old.reddit equivalent whenever possible
 // @author       You
 // @include      https://*reddit.com/*
 // @exclude      https://*old*reddit.com/*
 // @exclude      https://*reddit.com/poll/*
+// @exclude      https://*reddit.com/gallery/*
 // @icon         https://www.google.com/s2/favicons?domain=reddit.com
 // @grant        none
 // ==/UserScript==
